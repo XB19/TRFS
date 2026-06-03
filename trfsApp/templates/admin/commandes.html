@@ -1,0 +1,44 @@
+{% extends "admin/base.html" %}
+
+{% block title %}Gestion des commandes{% endblock %}
+
+{% block content %}
+
+<div class="table">
+
+    <h3>Toutes les commandes</h3>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Référence</th>
+                <th>Client</th>
+                <th>Destination</th>
+                <th>Statut</th>
+                <th>Action</th>
+            </tr>
+        </thead>
+
+        <tbody>
+            {% for commande in commandes %}
+            <tr>
+                <td>{{ commande.reference }}</td>
+                <td>{{ commande.user.username }}</td>
+                <td>{{ commande.destination }}</td>
+
+                <td>{{ commande.get_statut_display }}</td>
+
+                <td>
+                    <a href="{% url 'admin_commande_detail' commande.id %}">
+                        Voir
+                    </a>
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+
+    </table>
+
+</div>
+
+{% endblock %}

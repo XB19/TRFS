@@ -1,0 +1,173 @@
+{% extends "admin/base.html" %}
+
+{% block content %}
+
+<style>
+
+/* HEADER */
+.page-header{
+    margin-bottom:25px;
+}
+
+.page-header h2{
+    font-size:22px;
+    color:#111;
+}
+
+.page-header p{
+    color:#777;
+    font-size:14px;
+}
+
+/* CARDS */
+.cards{
+    display:flex;
+    gap:20px;
+    margin-bottom:25px;
+}
+
+.card{
+    flex:1;
+    background:#fff;
+    padding:22px;
+    border-radius:14px;
+    box-shadow:0 6px 18px rgba(0,0,0,0.06);
+    border-left:5px solid #1f7a3a;
+}
+
+.card h4{
+    font-size:13px;
+    color:#666;
+}
+
+.card p{
+    font-size:28px;
+    font-weight:700;
+    margin-top:8px;
+}
+
+/* TABLE */
+.table-box{
+    background:#fff;
+    padding:20px;
+    border-radius:14px;
+    box-shadow:0 6px 18px rgba(0,0,0,0.06);
+}
+
+.table-box h3{
+    margin-bottom:15px;
+}
+
+table{
+    width:100%;
+    border-collapse:collapse;
+}
+
+th, td{
+    padding:14px;
+    border-bottom:1px solid #eee;
+    text-align:left;
+    font-size:14px;
+}
+
+/* BADGES */
+.badge{
+    padding:5px 12px;
+    border-radius:20px;
+    font-size:12px;
+    font-weight:600;
+}
+
+.badge.sujet{
+    background:#e6f4ff;
+    color:#007bff;
+}
+
+.badge.new{
+    background:#fff3e6;
+    color:#ff7a00;
+}
+
+/* MESSAGE BOX STYLE */
+.msg-preview{
+    max-width:300px;
+    color:#555;
+    font-size:13px;
+}
+
+</style>
+
+<!-- HEADER -->
+<div class="page-header">
+    <h2>💬 Messages Contact</h2>
+    <p>Gestion des messages envoyés par les clients</p>
+</div>
+
+<!-- CARDS -->
+<div class="cards">
+
+    <div class="card">
+        <h4>Total messages</h4>
+        <p>{{ messages|length }}</p>
+    </div>
+
+</div>
+
+<!-- TABLE -->
+<div class="table-box">
+
+    <h3>Inbox messages</h3>
+
+    <table>
+
+        <thead>
+            <tr>
+                <th>Nom</th>
+                <th>Email</th>
+                <th>Sujet</th>
+                <th>Message</th>
+                <th>Date</th>
+            </tr>
+        </thead>
+
+        <tbody>
+
+            {% for msg in messages %}
+            <tr>
+
+                <td>
+                    <strong>{{ msg.nom }}</strong>
+                </td>
+
+                <td>
+                    {{ msg.email }}
+                </td>
+
+                <td>
+                    <span class="badge sujet">
+                        {{ msg.sujet|default:"Sans sujet" }}
+                    </span>
+                </td>
+
+                <td class="msg-preview">
+                    {{ msg.message|truncatechars:60 }}
+                </td>
+
+                <td>
+                    {{ msg.created_at|date:"d M Y - H:i" }}
+                </td>
+
+            </tr>
+            {% empty %}
+            <tr>
+                <td colspan="5">Aucun message</td>
+            </tr>
+            {% endfor %}
+
+        </tbody>
+
+    </table>
+
+</div>
+
+{% endblock %}

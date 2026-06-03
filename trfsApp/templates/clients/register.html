@@ -1,0 +1,49 @@
+{% extends 'clients/base.html' %}
+{% load static %}
+
+{% block content %}
+
+<section class="auth-section">
+
+    <div class="auth-container">
+
+        <div class="auth-card">
+
+            <h2>Inscription</h2>
+            <p>Créez votre compte TRFS</p>
+
+            <form method="POST">
+                {% csrf_token %}
+
+                <div class="form-group">
+                    <input type="text" name="username" placeholder="Nom d'utilisateur" required>
+                </div>
+
+                <div class="form-group">
+                    <input type="email" name="email" placeholder="Email" required>
+                </div>
+
+                <div class="form-group">
+                    <input type="password" name="password1" placeholder="Mot de passe" required>
+                </div>
+
+                <div class="form-group">
+                    <input type="password" name="password2" placeholder="Confirmer mot de passe" required>
+                </div>
+
+                <button type="submit" class="btn-auth">Créer un compte</button>
+
+            </form>
+
+            <p class="auth-link">
+                Déjà un compte ?
+                <a href="{% url 'login' %}">Se connecter</a>
+            </p>
+
+        </div>
+
+    </div>
+
+</section>
+
+{% endblock %}

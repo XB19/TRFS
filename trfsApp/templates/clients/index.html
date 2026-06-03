@@ -1,0 +1,427 @@
+{% extends 'clients/base.html' %}
+{% load static %}
+
+{% block content %}
+
+<!-- HERO -->
+<section class="hero">
+
+    <!-- VIDEO BACKGROUND -->
+    <div class="hero-video">
+        <video autoplay muted loop playsinline>
+            <source src="{% static 'videos/hero.mp4' %}" type="video/mp4">
+        </video>
+    </div>
+
+    <!-- OVERLAY (IMPORTANT) -->
+    <div class="hero-overlay"></div>
+
+    <!-- CONTENT -->
+    <div class="hero-content">
+
+        <h1>
+            <span class="light">Transport</span>
+            <span class="highlight">sécurisé</span><br>
+
+            <span class="light">et</span>
+            <span class="bold">rapide</span>
+            <span class="light">de vos</span><br>
+
+            <span class="bold">marchandises</span>
+        </h1>
+
+        <p>
+            TRFS vous accompagne dans le transport de vos colis avec un suivi en temps réel,
+            une sécurité optimale et une livraison fiable.
+        </p>
+
+        <a href="{% url 'services' %}" class="btn-white">Voir nos Services</a>
+
+    </div>
+
+</section>
+
+<!-- FEATURES -->
+<section class="features">
+    <div class="features-box">
+
+        <div class="feature">
+            <div class="circle">
+                <i class="fas fa-cogs"></i>
+            </div>
+            <p>Expertise</p>
+        </div>
+
+        <div class="feature">
+            <div class="circle">
+                <i class="fas fa-bolt"></i>
+            </div>
+            <p>Rapidité</p>
+        </div>
+
+        <div class="feature">
+            <div class="circle">
+                <i class="fas fa-globe"></i>
+            </div>
+            <p>Fiabilité</p>
+        </div>
+
+        <div class="feature">
+            <div class="circle">
+                <i class="fas fa-briefcase"></i>
+            </div>
+            <p>Professionnalisme</p>
+        </div>
+
+    </div>
+</section>
+<!-- FEATURES -->
+
+
+<!-- SERVICES -->
+<section class="services">
+
+    <!-- BANDE ORANGE -->
+    <div class="services-top">
+        <div class="services-title">
+            <h2>Nos Services</h2>
+        </div>
+    </div>
+
+    <!-- CARDS -->
+    <div class="services-cards">
+
+        <!-- CARD 1 -->
+        <div class="card">
+            <img src="{% static 'images/service1.jpg' %}" alt="">
+            <div class="card-body">
+                <div class="card-icon">
+                    <i class="fas fa-truck"></i>
+                </div>
+                <h3>Transport<br>national</h3>
+                <p>Livraison rapide sur tout le territoire</p>
+            </div>
+        </div>
+
+        <!-- CARD 2 -->
+        <div class="card">
+            <img src="{% static 'images/service2.jpg' %}" alt="">
+            <div class="card-body">
+                <div class="card-icon">
+                    <i class="fas fa-ship"></i>
+                </div>
+                <h3>Transport<br>international</h3>
+                <p>Expédition sécurisée à l'international</p>
+            </div>
+        </div>
+
+        <!-- CARD 3 -->
+        <div class="card">
+            <img src="{% static 'images/service3.jpg' %}" alt="">
+            <div class="card-body">
+                <div class="card-icon">
+                    <i class="fas fa-location-dot"></i>
+                </div>
+                <h3>Suivi en temps<br>réel</h3>
+                <p>Suivez vos marchandises à chaque étape</p>
+            </div>
+        </div>
+
+    </div>
+
+</section>
+<!-- SERVICES -->
+
+<!-- WHY -->
+<section class="why">
+    <div class="overlay"></div>
+
+    <h2>Pourquoi choisir TRFS</h2>
+
+    <div class="why-items">
+
+        <div class="why-box">
+            <div class="icon">
+                <i class="fa-solid fa-bolt"></i>
+            </div>
+            <h3>Rapidité</h3>
+            <p>Livraison dans les meilleurs délais</p>
+        </div>
+
+        <div class="why-box">
+            <div class="icon">
+                <i class="fa-solid fa-shield-halved"></i>
+            </div>
+            <h3>Sécurité</h3>
+            <p>Protection optimale des marchandises</p>
+        </div>
+
+        <div class="why-box">
+            <div class="icon">
+                <i class="fa-solid fa-circle-check"></i>
+            </div>
+            <h3>Fiabilité</h3>
+            <p>Service professionnel et ponctuel</p>
+        </div>
+
+    </div>
+</section>
+
+<!-- =======================================================
+TESTIMONIALS
+======================================================= -->
+<section class="testimonials">
+
+    <!-- BG EFFECT -->
+    <div class="testimonial-blur blur-1"></div>
+    <div class="testimonial-blur blur-2"></div>
+
+    <div class="container">
+
+        <div class="section-header">
+
+            <span class="mini-title">TÉMOIGNAGES</span>
+
+            <h2>
+                Ce que disent nos clients
+            </h2>
+
+            <p>
+                Ils nous font confiance pour transporter leurs marchandises
+                partout dans le monde avec sécurité et professionnalisme.
+            </p>
+
+        </div>
+
+        <div class="testimonials-grid">
+
+            <!-- CARD -->
+            <div class="testimonial-card">
+
+                <div class="quote-icon">
+                    <i class="fa-solid fa-quote-right"></i>
+                </div>
+
+                <div class="testimonial-top">
+
+                    <div class="testimonial-image">
+                        <img src="{% static 'images/user1.jpg' %}" alt="">
+                    </div>
+
+                    <div class="testimonial-info">
+
+                        <div class="stars">
+                            ★★★★★
+                        </div>
+
+                        <p>
+                            Service rapide et fiable. Mon colis est arrivé
+                            en parfait état. L’équipe TRFS est très
+                            professionnelle et toujours disponible.
+                        </p>
+
+                        <div class="testimonial-user">
+                            <h4>Jean K.</h4>
+                            <span>Entrepreneur</span>
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+            <!-- CARD -->
+            <div class="testimonial-card">
+
+                <div class="quote-icon">
+                    <i class="fa-solid fa-quote-right"></i>
+                </div>
+
+                <div class="testimonial-top">
+
+                    <div class="testimonial-image">
+                        <img src="{% static 'images/user2.jpg' %}" alt="">
+                    </div>
+
+                    <div class="testimonial-info">
+
+                        <div class="stars">
+                            ★★★★★
+                        </div>
+
+                        <p>
+                            Très satisfait du suivi en temps réel.
+                            Le processus a été simple, rapide et parfaitement
+                            organisé du début à la fin.
+                        </p>
+
+                        <div class="testimonial-user">
+                            <h4>Amina S.</h4>
+                            <span>Commerçante</span>
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+            <!-- CARD -->
+            <div class="testimonial-card">
+
+                <div class="quote-icon">
+                    <i class="fa-solid fa-quote-right"></i>
+                </div>
+
+                <div class="testimonial-top">
+
+                    <div class="testimonial-image">
+                        <img src="{% static 'images/user3.jpg' %}" alt="">
+                    </div>
+
+                    <div class="testimonial-info">
+
+                        <div class="stars">
+                            ★★★★★
+                        </div>
+
+                        <p>
+                            Livraison rapide et service client très
+                            professionnel. Je recommande fortement TRFS
+                            pour le transport international.
+                        </p>
+
+                        <div class="testimonial-user">
+                            <h4>Kossi M.</h4>
+                            <span>Importateur</span>
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+            <!-- CARD -->
+            <div class="testimonial-card">
+
+                <div class="quote-icon">
+                    <i class="fa-solid fa-quote-right"></i>
+                </div>
+
+                <div class="testimonial-top">
+
+                    <div class="testimonial-image">
+                        <img src="{% static 'images/user3.jpg' %}" alt="">
+                    </div>
+
+                    <div class="testimonial-info">
+
+                        <div class="stars">
+                            ★★★★★
+                        </div>
+
+                        <p>
+                            Une collaboration exceptionnelle.
+                            L’équipe est sérieuse, efficace et très attentive
+                            aux besoins des clients.
+                        </p>
+
+                        <div class="testimonial-user">
+                            <h4>Sarah A.</h4>
+                            <span>Responsable Logistique</span>
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+<!-- =======================================================
+PARTNERS
+======================================================= -->
+<section class="partners">
+
+    <!-- PREMIUM BLUR -->
+    <div class="partners-blur blur-left"></div>
+    <div class="partners-blur blur-right"></div>
+
+    <div class="container">
+
+        <div class="section-header">
+
+            <span class="mini-title">PARTENAIRES</span>
+
+            <h2>Nos partenaires</h2>
+
+            <p>
+                Des entreprises et organisations qui nous font confiance
+                pour assurer un transport moderne, rapide et sécurisé.
+            </p>
+
+        </div>
+
+        <div class="partners-slider">
+
+            <div class="partners-track">
+
+                <!-- ITEM -->
+                <div class="partner-card">
+                    <img src="{% static 'images/partner1.jpg' %}" alt="">
+                </div>
+
+                <div class="partner-card">
+                    <img src="{% static 'images/partner2.png' %}" alt="">
+                </div>
+
+                <div class="partner-card">
+                    <img src="{% static 'images/partner1.jpg' %}" alt="">
+                </div>
+
+                <div class="partner-card">
+                    <img src="{% static 'images/partner2.png' %}" alt="">
+                </div>
+
+                <div class="partner-card">
+                    <img src="{% static 'images/partner1.jpg' %}" alt="">
+                </div>
+
+                <div class="partner-card">
+                    <img src="{% static 'images/partner2.png' %}" alt="">
+                </div>
+
+                <div class="partner-card">
+                    <img src="{% static 'images/partner1.png' %}" alt="">
+                </div>
+
+                <div class="partner-card">
+                    <img src="{% static 'images/partner2.png' %}" alt="">
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+<!-- CTA -->
+<section class="cta">
+    <div class="cta-text">
+        <h2>TRFS transporte vos marchandises en toute sécurité et fiabilité. </h2>
+        <a href="{% url 'services' %}" class="btn-blue">Voir nos Services</a>
+    </div>
+
+    <img src="{% static 'images/camion.png' %}" class="cta-img"> <!-- 🔁 remplace -->
+</section>
+
+{% endblock %}

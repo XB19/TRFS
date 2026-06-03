@@ -1,0 +1,77 @@
+{% load static %}
+
+<header class="header">
+
+<div class="topbar">
+    <div class="topbar-item">
+        <i class="fa-solid fa-location-dot"></i>
+        <span>6185 pavés, Lomégan - Lomé</span>
+    </div>
+
+    <div class="topbar-item">
+        <i class="fa-solid fa-phone"></i>
+        <span>+228 90 79 34 34</span>
+    </div>
+</div>
+
+    <nav class="navbar">
+
+        <div class="logo">
+            <a href="{% url 'home' %}">
+                <img src="{% static 'images/logo.png' %}" alt="logo">
+            </a>
+        </div>
+
+        <ul class="nav-links">
+
+            <li>
+                <a href="{% url 'home' %}"
+                   class="{% if request.resolver_match.url_name == 'home' %}active{% endif %}">
+                   Accueil
+                </a>
+            </li>
+
+            <li>
+                <a href="{% url 'about' %}"
+                   class="{% if request.resolver_match.url_name == 'about' %}active{% endif %}">
+                   À propos
+                </a>
+            </li>
+
+            <li>
+                <a href="{% url 'services' %}"
+                   class="{% if request.resolver_match.url_name == 'services' %}active{% endif %}">
+                   Services
+                </a>
+            </li>
+
+            <li>
+                <a href="{% url 'bon_plan' %}"
+                class="{% if request.resolver_match.url_name == 'bon_plan' %}active{% endif %}">
+                Bon plans
+                </a>
+            </li>
+
+            <li>
+                <a href="{% url 'contact' %}"
+                   class="{% if request.resolver_match.url_name == 'contact' %}active{% endif %}">
+                   Contact
+                </a>
+            </li>
+
+        </ul>
+
+        <div class="nav-actions">
+
+            <a href="{% url 'login' %}" class="btn-outline">Connexion</a>
+            <a href="{% url 'register' %}" class="btn-primary">Inscription</a>
+
+        </div>
+        <!-- MENU MOBILE -->
+        <div class="menu-toggle" id="menu-toggle">
+            <i class="fa-solid fa-bars"></i>
+        </div>
+
+    </nav>
+
+</header>

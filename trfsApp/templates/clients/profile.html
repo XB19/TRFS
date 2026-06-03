@@ -1,0 +1,243 @@
+{% extends "clients/base_dashboard.html" %}
+{% load static %}
+
+{% block content %}
+
+<style>
+
+.profile-wrapper{
+    display:flex;
+    justify-content:center;
+    align-items:center; /* 🔥 centre verticalement aussi */
+    padding:40px 15px;
+}
+
+.profile-container{
+    background:white;
+    width:100%;
+    max-width:800px;
+    padding:30px;
+    border-radius:16px;
+    box-shadow:0 10px 30px rgba(0,0,0,0.08);
+    text-align:center; /* 🔥 centre tout le texte */
+}
+
+/* TITRES */
+h2{
+    color:#ff7a00;
+    margin-bottom:5px;
+}
+
+.subtitle{
+    color:#666;
+    margin-bottom:25px;
+}
+
+/* HEADER */
+.profile-header{
+    display:flex;
+    flex-direction:column; /* 🔥 avatar au dessus */
+    align-items:center; /* 🔥 centré */
+    justify-content:center;
+    gap:10px;
+    background:#f7f7f7;
+    padding:20px;
+    border-radius:12px;
+    margin-bottom:25px;
+    text-align:center;
+}
+
+.avatar img{
+    width:90px;
+    height:90px;
+    border-radius:50%;
+    object-fit:cover;
+    border:3px solid #ff7a00;
+}
+
+.avatar-fallback{
+    width:90px;
+    height:90px;
+    border-radius:50%;
+    background:#1f7a3a;
+    color:white;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    font-size:28px;
+    font-weight:bold;
+}
+
+/* VIEW MODE */
+.info-grid{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:15px;
+    margin-top:20px;
+    text-align:left; /* 🔥 garde les infos lisibles */
+}
+
+.info-box{
+    background:#f9f9f9;
+    padding:15px;
+    border-radius:10px;
+}
+
+.label{
+    font-size:12px;
+    color:#777;
+}
+
+.value{
+    font-weight:600;
+    color:#333;
+}
+
+/* BUTTON */
+.btn{
+    background:#ff7a00;
+    color:white;
+    padding:10px 18px;
+    border:none;
+    border-radius:30px;
+    text-decoration:none;
+    display:inline-block;
+    margin-top:25px;
+}
+
+.btn:hover{ background:#1f7a3a; }
+
+.btn-secondary{
+    background:#333;
+}
+
+/* FORM */
+.form-grid{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:15px;
+    text-align:left; /* 🔥 important pour les champs */
+}
+
+.form-group{
+    display:flex;
+    flex-direction:column;
+}
+
+input{
+    padding:10px;
+    border:1px solid #ddd;
+    border-radius:8px;
+}
+
+.full{ grid-column:1/-1; }
+
+</style>
+
+<div class="profile-wrapper">
+<div class="profile-container">
+
+<h2>Mon profil</h2>
+<div class="subtitle">Gestion de vos informations</div>
+
+<!-- AVATAR -->
+<div class="profile-header">
+
+    <div class="avatar">
+        {% if user.profile.image %}
+            <img src="{{ user.profile.image.url }}">
+        {% else %}
+            <div class="avatar-fallback">
+                {{ user.username|first|upper }}
+            </div>
+        {% endif %}
+    </div>
+
+    <div>
+        <strong>{{ user.username }}</strong><br>
+        <small>{{ user.email }}</small>
+    </div>
+
+</div>
+
+<!-- ===================== -->
+<!-- VIEW MODE -->
+<!-- ===================== -->
+
+{% if not edit_mode %}
+
+<div class="info-grid">
+
+    <div class="info-box">
+        <div class="label">Username</div>
+        <div class="value">{{ user.username }}</div>
+    </div>
+
+    <div class="info-box">
+        <div class="label">Email</div>
+        <div class="value">{{ user.email }}</div>
+    </div>
+
+    <div class="info-box">
+        <div class="label">Téléphone</div>
+        <div class="value">{{ user.profile.phone }}</div>
+    </div>
+
+    <div class="info-box">
+        <div class="label">Adresse</div>
+        <div class="value">{{ user.profile.address }}</div>
+    </div>
+
+</div>
+
+<a href="?edit=true" class="btn">Modifier le profil</a>
+
+{% else %}
+
+<!-- ===================== -->
+<!-- EDIT MODE -->
+<!-- ===================== -->
+
+<form method="POST" enctype="multipart/form-data">
+    {% csrf_token %}
+
+    <div class="form-grid">
+
+        <div class="form-group">
+            <label>Username</label>
+            {{ user_form.username }}
+        </div>
+
+        <div class="form-group">
+            <label>Email</label>
+            {{ user_form.email }}
+        </div>
+
+        <div class="form-group">
+            <label>Téléphone</label>
+            {{ profile_form.phone }}
+        </div>
+
+        <div class="form-group">
+            <label>Adresse</label>
+            {{ profile_form.address }}
+        </div>
+
+        <div class="form-group full">
+            <label>Photo</label>
+            {{ profile_form.image }}
+        </div>
+
+    </div>
+
+    <button class="btn" type="submit">Mettre à jour</button>
+    <a href="{% url 'profile' %}" class="btn btn-secondary">Annuler</a>
+
+</form>
+
+{% endif %}
+
+</div>
+</div>
+
+{% endblock %}

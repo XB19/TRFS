@@ -1,0 +1,143 @@
+{% extends 'clients/base.html' %}
+{% load static %}
+
+{% block content %}
+
+
+
+<!-- HERO -->
+<section class="contact-hero">
+    <div class="container">
+        <h1>Contactez-nous</h1>
+        <p>Nous sommes à votre écoute pour tous vos besoins de transport</p>
+    </div>
+</section>
+
+<!-- SECTION CONTACT -->
+<section class="contact-section">
+    <div class="container contact-grid">
+
+        <!-- INFOS -->
+<!-- INFOS -->
+<div class="contact-info">
+
+    <h2>Nos coordonnées</h2>
+
+    <p class="info-subtitle">
+        Nous sommes disponibles pour répondre à toutes vos demandes et vous accompagner 7j/7.
+    </p>
+
+    <div class="info-grid">
+
+        <div class="info-card">
+            <i class="fa-solid fa-location-dot"></i>
+            <h4>Adresse</h4>
+            <span>Lomé, Togo</span>
+        </div>
+
+        <div class="info-card">
+            <i class="fa-solid fa-phone"></i>
+            <h4>Téléphone</h4>
+            <span>+228 90 79 34 34</span>
+        </div>
+
+        <div class="info-card">
+            <i class="fa-solid fa-envelope"></i>
+            <h4>Email</h4>
+            <span>contact@trfs.com</span>
+        </div>
+
+        <div class="info-card">
+            <i class="fa-solid fa-headset"></i>
+            <h4>Support</h4>
+            <span>Réponse rapide 24h</span>
+        </div>
+
+    </div>
+
+</div>
+        <!-- FORMULAIRE -->
+       <div class="contact-form">
+
+    <div class="form-header">
+
+        <span class="mini-badge">
+            CONTACT
+        </span>
+
+        <h2>Envoyer un message</h2>
+
+        <p>
+            Notre équipe vous répond rapidement pour
+            tous vos besoins de transport.
+        </p>
+
+    </div>
+
+        <form method="POST" class="premium-form">
+
+            {% csrf_token %}
+
+            <div class="form-group">
+
+                <label>Nom complet</label>
+
+                <input
+                    type="text"
+                    name="nom"
+                    placeholder="Votre nom"
+                    required
+                >
+
+            </div>
+
+            <div class="form-group">
+
+                <label>Email</label>
+
+                <input
+                    type="email"
+                    name="email"
+                    placeholder="Votre email"
+                    required
+                >
+
+            </div>
+
+            <div class="form-group">
+
+                <label>Sujet</label>
+
+                <input
+                    type="text"
+                    name="sujet"
+                    placeholder="Sujet"
+                >
+
+            </div>
+
+            <div class="form-group">
+
+                <label>Message</label>
+
+                <textarea
+                    name="message"
+                    placeholder="Votre message"
+                    required
+                ></textarea>
+
+            </div>
+
+            <button type="submit" class="btn-primary btn-send">
+                <i class="fa-solid fa-paper-plane"></i>
+                Envoyer le message
+            </button>
+
+        </form>
+
+    </div>
+
+    </div>
+</section>
+
+{% endblock %}

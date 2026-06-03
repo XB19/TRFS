@@ -1,0 +1,71 @@
+
+{% load static %}
+<footer class="footer">
+
+    <div class="footer-container">
+
+        <!-- COLONNE 1 -->
+        <div class="footer-col">
+
+            <!-- LOGO IMAGE -->
+            <img src="{% static 'images/logo.png' %}" alt="logo">
+
+            <p class="footer-text">
+                TRFS vous accompagne dans le transport de vos colis avec un suivi en temps réel,
+                une sécurité optimale et une livraison fiable.
+            </p>
+
+            <!-- SOCIAL ICONS -->
+            <div class="socials">
+                <a href="#" class="social-icon"><i class="fa-brands fa-facebook-f"></i></a>
+                <a href="#" class="social-icon"><i class="fa-brands fa-tiktok"></i></a>
+                <a href="#" class="social-icon"><i class="fa-brands fa-youtube"></i></a>
+                <a href="#" class="social-icon"><i class="fa-brands fa-linkedin-in"></i></a>
+            </div>
+
+        </div>
+
+        <!-- COLONNE 2 -->
+        <div class="footer-col">
+            <h4>Liens utiles</h4>
+            <ul class="footer-links">
+            <li><a href="{% url 'home' %}" class="active">Accueil</a></li>
+            <li><a href="{% url 'about' %}">À propos</a></li>
+            <li><a href="{% url 'services' %}">Services</a></li>
+            <li><a href="{% url 'contact' %}">Contact</a></li>
+            </ul>
+        </div>
+
+        <!-- COLONNE 3 -->
+        <div class="footer-col">
+            <h4>Souscrire à la newsletter</h4>
+
+                <form method="POST"
+                    action="{% url 'subscribe_newsletter' %}"
+                    class="newsletter-form">
+
+                    {% csrf_token %}
+
+                    <input
+                        type="email"
+                        name="email"
+                        placeholder="Votre email"
+                        class="newsletter-input"
+                        required
+                    >
+
+                    <button type="submit" class="newsletter-btn">
+                        S'inscrire
+                    </button>
+
+                </form>
+        </div>
+
+    </div>
+
+    <div class="footer-bottom">
+        <hr>
+        <p>Copyright © 2026 TRFS. Tous droits réservés.</p>
+    </div>
+
+</footer>

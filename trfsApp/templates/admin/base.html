@@ -1,0 +1,183 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Admin TRFS</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+<style>
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Poppins', sans-serif;
+}
+
+body{
+    background:#f4f6f8;
+}
+
+/* LAYOUT */
+.dashboard{
+    display:flex;
+    min-height:100vh;
+}
+
+/* SIDEBAR */
+.sidebar{
+    width:260px;
+    background:#111;
+    padding:25px;
+}
+
+.sidebar-logo{
+    background:#fff;
+    padding:15px;
+    border-radius:12px;
+    margin-bottom:30px;
+    text-align:center;
+}
+
+.sidebar-logo img{
+    width:100px;
+}
+
+/* MENU */
+.sidebar ul{
+    list-style:none;
+}
+
+.sidebar ul li{
+    margin-bottom:10px;
+}
+
+.sidebar ul a{
+    display:flex;
+    align-items:center;
+    gap:10px;
+    padding:12px;
+    color:#ccc;
+    text-decoration:none;
+    border-radius:10px;
+}
+
+.sidebar ul a:hover,
+.sidebar ul a.active{
+    background:#ff7a00;
+    color:#fff;
+}
+
+/* MAIN */
+.main{
+    flex:1;
+    padding:30px;
+}
+
+/* TOPBAR */
+.topbar{
+    display:flex;
+    justify-content:space-between;
+    margin-bottom:30px;
+}
+
+</style>
+
+</head>
+
+<body>
+
+<div class="dashboard">
+
+    <!-- SIDEBAR -->
+    <div class="sidebar">
+
+        <div class="sidebar-logo">
+            <img src="{% static 'images/logo.png' %}">
+        </div>
+
+<ul>
+
+    <li>
+        <a href="{% url 'admin_dashboard' %}">
+            <i class="fa-solid fa-house"></i>
+            Dashboard
+        </a>
+    </li>
+
+    <li>
+        <a href="{% url 'admin_commandes' %}">
+            <i class="fa-solid fa-box"></i>
+            Commandes
+        </a>
+    </li>
+
+    <li>
+        <a href="{% url 'admin_users' %}">
+            <i class="fa-solid fa-users"></i>
+            Utilisateurs
+        </a>
+    </li>
+
+    <li>
+        <a href="{% url 'admin_tracking' %}">
+            <i class="fa-solid fa-truck-fast"></i>
+            Tracking
+        </a>
+    </li>
+
+    <li>
+        <a href="{% url 'admin_stats' %}">
+            <i class="fa-solid fa-chart-line"></i>
+            Statistiques
+        </a>
+    </li>
+
+    <!-- NEWSLETTER -->
+    <li>
+        <a href="{% url 'admin_newsletters' %}">
+            <i class="fa-solid fa-envelope-open-text"></i>
+            Newsletters
+        </a>
+    </li>
+
+    <!-- CONTACT -->
+    <li>
+        <a href="{% url 'admin_contacts' %}">
+            <i class="fa-solid fa-comments"></i>
+            Contacts
+        </a>
+    </li>
+
+    <li>
+        <a href="{% url 'logout' %}">
+            <i class="fa-solid fa-right-from-bracket"></i>
+            Déconnexion
+        </a>
+    </li>
+
+</ul>
+
+    </div>
+
+    <!-- MAIN -->
+    <div class="main">
+
+        <div class="topbar">
+            <h2>{% block title %}{% endblock %}</h2>
+            <span>Admin TRFS</span>
+        </div>
+
+        {% block content %}{% endblock %}
+
+    </div>
+
+</div>
+
+</body>
+</html>

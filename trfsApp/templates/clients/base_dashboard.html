@@ -1,0 +1,197 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>{% block title %}Dashboard TRFS{% endblock %}</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+<style>
+
+/* =========================
+   RESET
+========================= */
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Poppins', sans-serif;
+}
+
+body{
+    background:#f4f6f8;
+    color:#111;
+}
+
+/* =========================
+   LAYOUT
+========================= */
+.dashboard{
+    display:flex;
+    min-height:100vh;
+}
+
+/* =========================
+   SIDEBAR
+========================= */
+.sidebar{
+    width:260px;
+    background:#ff7a00;
+    padding:25px 18px;
+    display:flex;
+    flex-direction:column;
+}
+
+.sidebar-logo{
+    background:#fff;
+    border-radius:14px;
+    padding:18px;
+    text-align:center;
+    margin-bottom:30px;
+    box-shadow:0 4px 12px rgba(0,0,0,0.08);
+}
+
+.sidebar-logo img{
+    width:110px;
+}
+
+/* MENU */
+.sidebar ul{
+    list-style:none;
+    margin-top:10px;
+}
+
+.sidebar ul li{
+    margin-bottom:10px;
+}
+
+.sidebar ul a{
+    display:flex;
+    align-items:center;
+    gap:12px;
+    padding:12px 14px;
+    border-radius:10px;
+    text-decoration:none;
+    color:#fff;
+    font-weight:500;
+    transition:0.3s;
+}
+
+.sidebar ul a:hover,
+.sidebar ul a.active{
+    background:#1f7a3a;
+}
+
+/* =========================
+   MAIN
+========================= */
+.main{
+    flex:1;
+    padding:30px;
+}
+
+/* TOPBAR */
+.topbar{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    margin-bottom:30px;
+}
+
+.topbar h2{
+    font-size:22px;
+}
+
+.user{
+    font-size:14px;
+    color:#555;
+}
+
+/* =========================
+   CONTENT BLOCK
+========================= */
+.content{
+    width:100%;
+}
+
+/* (tu peux garder ici styles cards/table si besoin global) */
+
+</style>
+
+{% block extra_css %}{% endblock %}
+
+</head>
+
+<body>
+
+<div class="dashboard">
+
+    <!-- SIDEBAR (commune à tout le site) -->
+    <div class="sidebar">
+
+        <div class="sidebar-logo">
+            <img src="{% static 'images/logo.png' %}" alt="TRFS Logo">
+        </div>
+
+        <ul>
+            <li>
+                <a href="{% url 'dashboard' %}">
+                    <i class="fa fa-home"></i> Dashboard
+                </a>
+            </li>
+
+            <li>
+                <a href="{% url 'mes_commandes' %}">
+                    <i class="fa fa-box"></i> Mes commandes
+                </a>
+            </li>
+
+            <li>
+                <a href="{% url 'nouvelle_commande' %}">
+                    <i class="fa fa-plus"></i> Nouvelle commande
+                </a>
+            </li>
+
+            <li>
+                <a href="{% url 'tracking' %}">
+                    <i class="fa fa-search"></i> Suivi colis
+                </a>
+            </li>
+
+            <li>
+                <a href="{% url 'profile' %}">
+                    <i class="fa fa-user"></i> Profil
+                </a>
+            </li>
+
+            <li>
+                <a href="{% url 'logout' %}">
+                    <i class="fa fa-right-from-bracket"></i> Déconnexion
+                </a>
+            </li>
+        </ul>
+    </div>
+
+    <!-- MAIN -->
+    <div class="main">
+
+        <div class="topbar">
+            <h2>{% block page_title %}{% endblock %}</h2>
+            <div class="user">Espace client TRFS</div>
+        </div>
+
+        <div class="content">
+            {% block content %}{% endblock %}
+        </div>
+
+    </div>
+
+</div>
+
+{% block extra_js %}{% endblock %}
+
+</body>
+</html>
