@@ -1,0 +1,13 @@
+.git
+.gitignore
+__pycache__/
+**/__pycache__/
+*.pyc
+venv/
+env/
+media/
+staticfiles/
+db.sqlite3
+trfs/.env
+.env
+*.md
