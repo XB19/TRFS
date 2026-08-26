@@ -1,37 +1,6 @@
 services:
-  db:
-    image: postgres:16-alpine
-    restart: unless-stopped
-    environment:
-      POSTGRES_DB: trfs
-      POSTGRES_USER: trfs
-      POSTGRES_PASSWORD: trfs
-    volumes:
-      - postgres_data:/var/lib/postgresql/data
-    healthcheck:
-      test: ["CMD-SHELL", "pg_isready -U trfs"]
-      interval: 5s
-      timeout: 5s
-      retries: 5
-
   web:
     build: .
-    restart: unless-stopped
-    env_file:
-      - trfs/.env
-    environment:
-      DB_NAME: trfs
-      DB_USER: trfs
-      DB_PASSWORD: trfs
-      DB_HOST: db
-      DB_PORT: 5432
-    depends_on:
-      db:
-        condition: service_healthy
     ports:
-      - "8000:8000"
-    volumes:
-      - ./media:/app/media
-
-volumes:
-  postgres_data:
+      - "8080:80"
+    restart: unless-stopped

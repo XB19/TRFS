@@ -1,0 +1,477 @@
+.bonplan-page{
+    --primary:#ff7426;
+    --primary-dark:#e76417;
+
+    --secondary:#1e9b63;
+    --secondary-dark:#15784b;
+
+    --dark:#0f172a;
+    --text:#64748b;
+
+    --white:#ffffff;
+    --light:#f8fafc;
+
+    --border:#e2e8f0;
+}
+
+/* =========================
+BASE
+========================= */
+
+.bonplan-page .container{
+    max-width:1280px;
+    margin:auto;
+    padding:0 24px;
+}
+
+@media(max-width:768px){
+    .bonplan-page .container{
+        padding:0 16px;
+    }
+}
+
+/* =========================
+ANIMATIONS
+========================= */
+
+@keyframes fadeUp{
+    from{ opacity:0; transform:translateY(30px); }
+    to{ opacity:1; transform:translateY(0); }
+}
+
+@keyframes scaleIn{
+    from{ opacity:0; transform:scale(.95); }
+    to{ opacity:1; transform:scale(1); }
+}
+
+@keyframes bpFadeIn{
+    from{ opacity:0; }
+    to{ opacity:1; }
+}
+
+@keyframes bpSlideUp{
+    from{ opacity:0; transform:translateY(26px); }
+    to{ opacity:1; transform:translateY(0); }
+}
+
+.bonplan-page .hero-section{
+    animation:bpFadeIn .8s ease-out both;
+}
+
+.bonplan-page .hero-tag{
+    animation:bpSlideUp .7s ease-out .1s both;
+}
+
+.bonplan-page .hero-title{
+    animation:bpSlideUp .7s ease-out .25s both;
+}
+
+.bonplan-page .hero-text{
+    animation:bpSlideUp .7s ease-out .4s both;
+}
+
+.bonplan-page .hero-btn{
+    animation:bpSlideUp .7s ease-out .55s both;
+}
+
+/* =========================
+TOP BANNER
+========================= */
+
+.bonplan-page .anniv-banner{
+    background:linear-gradient(90deg, var(--secondary-dark), var(--secondary), var(--secondary-dark));
+    padding:14px 0;
+    margin-top:90px;
+}
+
+.bonplan-page .anniv-inner{
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    gap:16px;
+    flex-wrap:wrap;
+}
+
+.bonplan-page .anniv-badge{
+    background:var(--primary);
+    color:white;
+    padding:7px 16px;
+    border-radius:40px;
+    font-size:11px;
+    font-weight:800;
+    letter-spacing:.14em;
+}
+
+.bonplan-page .anniv-text{
+    color:rgba(255,255,255,.92);
+    font-size:14px;
+}
+
+.bonplan-page .anniv-text strong{
+    color:#fff;
+}
+
+/* =========================
+HERO
+========================= */
+
+.bonplan-page .hero-section{
+    position:relative;
+    padding:120px 0 110px;
+
+    background:
+    linear-gradient(rgba(10,15,25,.75), rgba(10,15,25,.82)),
+    url("/images/hero.jpg");
+
+    background-size:cover;
+    background-position:center;
+
+    text-align:center;
+}
+
+.bonplan-page .hero-tag{
+    display:inline-block;
+    background:rgba(255,255,255,.12);
+    border:1px solid rgba(255,255,255,.14);
+    color:#fff;
+    padding:8px 18px;
+    border-radius:50px;
+    font-size:12px;
+    font-weight:700;
+    letter-spacing:.15em;
+    text-transform:uppercase;
+    margin-bottom:24px;
+    backdrop-filter:blur(8px);
+}
+
+.bonplan-page .hero-title{
+    font-size:clamp(38px,6vw,62px);
+    font-weight:800;
+    line-height:1.1;
+    color:white;
+    margin-bottom:20px;
+}
+
+.bonplan-page .hero-title span{
+    color:var(--primary);
+}
+
+.bonplan-page .hero-text{
+    max-width:680px;
+    margin:0 auto 40px;
+    font-size:16px;
+    line-height:1.8;
+    color:rgba(255,255,255,.82);
+}
+
+.bonplan-page .hero-btn{
+    display:inline-flex;
+    align-items:center;
+    gap:12px;
+    border:none;
+    border-radius:60px;
+    background:linear-gradient(135deg, var(--primary), var(--primary-dark));
+    color:white;
+    padding:18px 36px;
+    font-size:15px;
+    font-weight:700;
+    cursor:pointer;
+    transition:.35s;
+}
+
+.bonplan-page .hero-btn:hover{
+    transform:translateY(-4px);
+    box-shadow:0 18px 40px rgba(255,116,38,.35);
+}
+
+/* =========================
+SECTION
+========================= */
+
+.bonplan-page .bonsplans-section{
+    padding:90px 0;
+    background:var(--light);
+}
+
+.bonplan-page .section-head{
+    text-align:center;
+    margin-bottom:55px;
+}
+
+.bonplan-page .section-tag{
+    display:inline-block;
+    background:rgba(30,155,99,.12);
+    color:var(--secondary);
+    padding:8px 16px;
+    border-radius:40px;
+    font-size:11px;
+    font-weight:800;
+    letter-spacing:.12em;
+    text-transform:uppercase;
+    margin-bottom:18px;
+}
+
+.bonplan-page .section-title{
+    font-size:42px;
+    font-weight:800;
+    color:var(--dark);
+}
+
+/* =========================
+GRID
+========================= */
+
+.bonplan-page .bp-grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+    gap:26px;
+}
+
+/* =========================
+CARD
+========================= */
+
+.bonplan-page .bp-card{
+    position:relative;
+    background:white;
+    border-radius:24px;
+    overflow:hidden;
+    border:1px solid var(--border);
+    transition:.35s;
+    cursor:pointer;
+}
+
+.bonplan-page .bp-card:hover{
+    transform:translateY(-8px);
+    box-shadow:0 22px 50px rgba(15,23,42,.12);
+}
+
+.bonplan-page .bp-card:hover .bp-overlay{
+    opacity:1;
+}
+
+.bonplan-page .bp-img{
+    width:100%;
+    aspect-ratio:3/4;
+    object-fit:cover;
+    display:block;
+}
+
+.bonplan-page .bp-overlay{
+    position:absolute;
+    inset:0;
+    background:linear-gradient(to top, rgba(0,0,0,.72), transparent);
+    display:flex;
+    align-items:flex-end;
+    padding:24px;
+    opacity:0;
+    transition:.3s;
+}
+
+.bonplan-page .bp-badge{
+    position:absolute;
+    top:16px;
+    left:16px;
+    background:var(--secondary);
+    color:white;
+    padding:7px 14px;
+    border-radius:40px;
+    font-size:10px;
+    font-weight:800;
+    letter-spacing:.14em;
+    text-transform:uppercase;
+}
+
+.bonplan-page .bp-footer{
+    padding:18px;
+}
+
+.bonplan-page .bp-name{
+    font-size:15px;
+    font-weight:700;
+    color:var(--dark);
+}
+
+/* =========================
+TEXT CARD
+========================= */
+
+.bonplan-page .bp-text-card{
+    background:white;
+    border-radius:24px;
+    border:1px solid var(--border);
+    padding:28px;
+    transition:.35s;
+}
+
+.bonplan-page .bp-text-card:hover{
+    transform:translateY(-6px);
+    box-shadow:0 18px 44px rgba(15,23,42,.08);
+}
+
+.bonplan-page .bp-icon{
+    width:60px;
+    height:60px;
+    border-radius:18px;
+    background:rgba(255,116,38,.12);
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    font-size:28px;
+    margin-bottom:20px;
+}
+
+.bonplan-page .bp-mini-badge{
+    display:inline-block;
+    background:var(--primary);
+    color:white;
+    padding:6px 14px;
+    border-radius:40px;
+    font-size:10px;
+    font-weight:800;
+    letter-spacing:.12em;
+    margin-bottom:16px;
+}
+
+.bonplan-page .bp-text-title{
+    font-size:20px;
+    font-weight:800;
+    color:var(--dark);
+    margin-bottom:12px;
+}
+
+.bonplan-page .bp-text{
+    color:var(--text);
+    line-height:1.8;
+    font-size:14px;
+    margin-bottom:18px;
+}
+
+.bonplan-page .bp-link{
+    color:var(--secondary);
+    text-decoration:none;
+    font-weight:700;
+}
+
+/* =========================
+LIGHTBOX
+========================= */
+
+.bonplan-page .lb-bg{
+    display:none;
+    position:fixed;
+    inset:0;
+    z-index:99999;
+    background:rgba(0,0,0,.82);
+    align-items:center;
+    justify-content:center;
+    backdrop-filter:blur(6px);
+}
+
+.bonplan-page .lb-bg.open{
+    display:flex;
+}
+
+.bonplan-page .lb-content{
+    position:relative;
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    max-width:640px;
+    width:94%;
+    animation:scaleIn .25s ease;
+}
+
+.bonplan-page .lb-img{
+    width:100%;
+    max-height:88vh;
+    object-fit:contain;
+    border-radius:24px;
+}
+
+.bonplan-page .lb-close{
+    position:absolute;
+    top:-52px;
+    right:0;
+    width:42px;
+    height:42px;
+    border:none;
+    border-radius:50%;
+    background:rgba(255,255,255,.18);
+    color:white;
+    font-size:20px;
+    cursor:pointer;
+}
+
+.bonplan-page .lb-title{
+    text-align:center;
+    color:white;
+    margin-top:16px;
+    font-size:14px;
+    font-weight:600;
+}
+
+/* =========================
+MODAL
+========================= */
+
+.bonplan-page .zc-modal-bg{
+    display:none;
+    position:fixed;
+    inset:0;
+    z-index:999999;
+    background:rgba(0,0,0,.65);
+    align-items:center;
+    justify-content:center;
+    backdrop-filter:blur(8px);
+}
+
+.bonplan-page .zc-modal-bg.open{
+    display:flex;
+}
+
+.bonplan-page .zc-modal-box{
+    position:relative;
+    background:white;
+    width:92%;
+    max-width:450px;
+    padding:46px 34px;
+    border-radius:28px;
+    text-align:center;
+    animation:scaleIn .25s ease;
+}
+
+.bonplan-page .zc-close{
+    position:absolute;
+    top:18px;
+    right:20px;
+    border:none;
+    background:none;
+    font-size:24px;
+    cursor:pointer;
+}
+
+.bonplan-page .zc-icon{
+    width:78px;
+    height:78px;
+    margin:0 auto 24px;
+    border-radius:24px;
+    background:linear-gradient(135deg, var(--primary), var(--primary-dark));
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    font-size:34px;
+    color:white;
+}
+
+.bonplan-page .zc-title{
+    font-size:28px;
+    font-weight:800;
+    color:var(--dark);
+    margin-bottom:12px;
+}
+
+.bonplan-page .zc-text{
+    color:var(--text);
+    line-height:1.8;
+}

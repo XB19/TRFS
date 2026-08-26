@@ -1,19 +1,19 @@
-FROM python:3.12-slim
-
-ENV PYTHONDONTWRITEBYTECODE=1 \
-    PYTHONUNBUFFERED=1
-
+# ---- Build stage ----
+FROM node:20-alpine AS build
 WORKDIR /app
 
-COPY requirements.txt .
-# pyinstaller/pywin32-ctypes/pefile/altgraph are Windows-only build tooling,
-# unused by the Django app itself, and fail to install on Linux.
-RUN grep -viE '^(pyinstaller|pyinstaller-hooks-contrib|pywin32-ctypes|pefile|altgraph)==' requirements.txt > requirements.docker.txt \
-    && pip install --no-cache-dir -r requirements.docker.txt gunicorn
+COPY package.json package-lock.json ./
+RUN npm ci
 
 COPY . .
-RUN sed -i 's/\r$//' docker-entrypoint.sh && chmod +x docker-entrypoint.sh
+RUN npm run build
 
-EXPOSE 8000
+# ---- Serve stage ----
+FROM nginx:alpine
 
-ENTRYPOINT ["./docker-entrypoint.sh"]
+COPY --from=build /app/dist /usr/share/nginx/html
+COPY nginx.conf /etc/nginx/conf.d/default.conf
+
+EXPOSE 80
+
+CMD ["nginx", "-g", "daemon off;"]
