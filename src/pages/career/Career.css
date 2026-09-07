@@ -1,0 +1,326 @@
+/* ===============================
+   HERO (same recipe as about/services/contact)
+================================ */
+
+.career-hero{
+    position:relative;
+    padding:140px 20px 120px;
+    text-align:center;
+    background:url('/images/hero.jpg') center/cover no-repeat;
+    color:white;
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    min-height:10vh;
+}
+
+.career-hero::before{
+    content:"";
+    position:absolute;
+    inset:0;
+    background:linear-gradient(120deg, rgba(0,130,0,0.85), rgba(0,0,0,0.4));
+}
+
+.career-hero .container{
+    position:relative;
+    z-index:2;
+    max-width:900px;
+    margin:0 auto;
+}
+
+.career-hero h1{
+    font-size:42px;
+    margin-bottom:12px;
+    font-weight:700;
+}
+
+.career-hero p{
+    font-size:17px;
+    opacity:0.9;
+    line-height:1.7;
+    max-width:700px;
+    margin:0 auto;
+}
+
+/* ===============================
+   OFFERS SECTION
+================================ */
+
+.career-section{
+    padding:100px 0;
+    background:#f5f5f5;
+}
+
+.career-grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit, minmax(300px, 1fr));
+    gap:30px;
+}
+
+.career-card{
+    background:#fff;
+    border-radius:14px;
+    padding:32px 28px;
+    box-shadow:0 10px 25px rgba(0,0,0,0.08);
+    transition:0.3s ease;
+    text-decoration:none;
+    color:inherit;
+    display:flex;
+    flex-direction:column;
+}
+
+.career-card:hover{
+    transform:translateY(-8px);
+    box-shadow:0 20px 45px rgba(0,0,0,0.12);
+}
+
+.career-card-meta{
+    display:flex;
+    flex-wrap:wrap;
+    gap:8px;
+    margin-bottom:16px;
+}
+
+.career-badge{
+    display:inline-block;
+    padding:5px 14px;
+    border-radius:30px;
+    font-size:12px;
+    font-weight:600;
+}
+
+.career-badge.contract{
+    background:rgba(255,140,0,0.12);
+    color:#ff8c00;
+}
+
+.career-badge.department{
+    background:rgba(0,128,0,0.1);
+    color:#008000;
+}
+
+.career-card h3{
+    font-size:20px;
+    font-weight:700;
+    color:#000;
+    margin-bottom:10px;
+}
+
+.career-card-location{
+    font-size:13px;
+    color:#777;
+    margin-bottom:14px;
+    display:flex;
+    align-items:center;
+    gap:6px;
+}
+
+.career-card-excerpt{
+    font-size:14px;
+    color:#555;
+    line-height:1.6;
+    margin-bottom:20px;
+    flex:1;
+}
+
+.career-card-link{
+    font-size:14px;
+    font-weight:700;
+    color:#008000;
+}
+
+.career-state{
+    text-align:center;
+    padding:60px 20px;
+    color:#666;
+    font-size:15px;
+}
+
+.career-state.error{
+    color:#c0392b;
+}
+
+/* ===============================
+   OFFER DETAIL
+================================ */
+
+.career-detail-header{
+    background:#fff;
+    border-radius:18px;
+    padding:40px;
+    box-shadow:0 12px 35px rgba(0,0,0,0.08);
+    margin-bottom:40px;
+}
+
+.career-back-link{
+    display:inline-flex;
+    align-items:center;
+    gap:8px;
+    color:#008000;
+    font-weight:600;
+    font-size:14px;
+    text-decoration:none;
+    margin-bottom:20px;
+}
+
+.career-detail-header h1{
+    font-size:30px;
+    color:#000;
+    margin-bottom:16px;
+}
+
+.career-detail-block{
+    background:#fff;
+    border-radius:18px;
+    padding:40px;
+    box-shadow:0 12px 35px rgba(0,0,0,0.08);
+    margin-bottom:30px;
+}
+
+.career-detail-block h2{
+    color:#008000;
+    font-size:20px;
+    margin-bottom:16px;
+    font-weight:700;
+}
+
+.career-detail-block p{
+    color:#555;
+    line-height:1.8;
+    font-size:15px;
+    white-space:pre-line;
+}
+
+/* ===============================
+   APPLICATION FORM
+================================ */
+
+.career-apply-card{
+    background:#fff;
+    padding:45px;
+    border-radius:18px;
+    box-shadow:0 12px 35px rgba(0,0,0,0.08);
+    max-width:700px;
+    margin:0 auto;
+}
+
+.career-apply-card h2{
+    margin-bottom:10px;
+    color:#008000;
+    text-align:center;
+    font-size:26px;
+    font-weight:700;
+}
+
+.career-apply-card .subtitle{
+    text-align:center;
+    color:#666;
+    font-size:14px;
+    margin-bottom:30px;
+    line-height:1.6;
+}
+
+.career-file-label{
+    display:block;
+    margin-bottom:6px;
+    font-size:13px;
+    font-weight:600;
+    color:#333;
+}
+
+.career-file-input{
+    width:100%;
+    padding:12px 14px;
+    border:1px dashed #ccc;
+    border-radius:10px;
+    font-size:13px;
+    background:#fafafa;
+    cursor:pointer;
+}
+
+.career-form-error{
+    background:#fdecea;
+    color:#c0392b;
+    padding:12px 16px;
+    border-radius:10px;
+    font-size:14px;
+    margin-bottom:16px;
+}
+
+.career-form-success{
+    text-align:center;
+    padding:30px 10px;
+}
+
+.career-form-success i{
+    font-size:44px;
+    color:#008000;
+    margin-bottom:16px;
+}
+
+.career-form-success h3{
+    font-size:20px;
+    margin-bottom:8px;
+    color:#000;
+}
+
+.career-form-success p{
+    color:#666;
+    font-size:14px;
+}
+
+/* ===============================
+   CTA
+================================ */
+
+.career-cta{
+    background:#ff8c00;
+    padding:80px 20px;
+    text-align:center;
+    color:white;
+}
+
+.career-cta h2{
+    font-size:32px;
+    margin-bottom:10px;
+}
+
+.career-cta p{
+    margin-bottom:20px;
+    font-size:16px;
+}
+
+.career-cta .btn-primary{
+    background:white;
+    color:#008000;
+    padding:14px 30px;
+    border-radius:30px;
+    font-weight:600;
+    text-decoration:none;
+    transition:0.3s;
+}
+
+.career-cta .btn-primary:hover{
+    background:#f1f1f1;
+}
+
+/* ===============================
+   RESPONSIVE
+================================ */
+
+@media (max-width:768px){
+    .career-hero h1{
+        font-size:30px;
+    }
+
+    .career-hero p{
+        font-size:15px;
+    }
+
+    .career-detail-header,
+    .career-detail-block,
+    .career-apply-card{
+        padding:28px;
+    }
+}

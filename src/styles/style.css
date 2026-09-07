@@ -214,6 +214,115 @@ body{
 
 
 /* ===============================
+   CAREER DROPDOWN
+================================ */
+
+.nav-dropdown{
+    position:relative;
+}
+
+.nav-dropdown-trigger{
+    display:inline-flex;
+    align-items:center;
+    gap:6px;
+    background:none;
+    border:none;
+    padding:0;
+    font-family:inherit;
+    color:#333;
+    font-weight:500;
+    font-size:15px;
+    cursor:pointer;
+    transition:0.3s ease;
+}
+
+.nav-dropdown-trigger:hover,
+.nav-dropdown-trigger.active{
+    color:#008000;
+}
+
+.nav-dropdown-trigger i{
+    font-size:11px;
+    transition:transform 0.3s ease;
+}
+
+.nav-dropdown.open .nav-dropdown-trigger i{
+    transform:rotate(180deg);
+}
+
+@media (min-width:993px){
+    .nav-dropdown:hover .nav-dropdown-trigger i,
+    .nav-dropdown:focus-within .nav-dropdown-trigger i{
+        transform:rotate(180deg);
+    }
+}
+
+.nav-dropdown-menu{
+    position:absolute;
+    /* Flush against the trigger (no gap) — a gap here is an invisible dead
+       zone the mouse must cross to reach the menu, breaking :hover before
+       the click lands. */
+    top:100%;
+    left:50%;
+    transform:translateX(-50%) translateY(-8px);
+    min-width:220px;
+    margin:0;
+    background:#fff;
+    border-radius:14px;
+    box-shadow:0 15px 35px rgba(0,0,0,0.12);
+    padding:10px;
+    list-style:none;
+    opacity:0;
+    pointer-events:none;
+    transition:0.25s ease;
+    z-index:10;
+}
+
+.nav-dropdown.open .nav-dropdown-menu{
+    opacity:1;
+    pointer-events:auto;
+    transform:translateX(-50%) translateY(0);
+}
+
+/* Desktop: reveal on hover, pure CSS — independent of the click-driven
+   .open state used for mobile/keyboard, so hovering then clicking never
+   fights itself shut. */
+@media (min-width:993px){
+    .nav-dropdown:hover .nav-dropdown-menu,
+    .nav-dropdown:focus-within .nav-dropdown-menu{
+        opacity:1;
+        pointer-events:auto;
+        transform:translateX(-50%) translateY(0);
+    }
+}
+
+.nav-dropdown-menu li{
+    list-style:none;
+}
+
+.nav-dropdown-menu a{
+    display:block;
+    padding:10px 14px;
+    border-radius:10px;
+    color:#333;
+    text-decoration:none;
+    font-size:14px;
+    font-weight:500;
+    transition:0.25s ease;
+    white-space:nowrap;
+}
+
+.nav-dropdown-menu a::after{
+    display:none;
+}
+
+.nav-dropdown-menu a:hover,
+.nav-dropdown-menu a.active{
+    background:rgba(0,128,0,0.08);
+    color:#008000;
+}
+
+/* ===============================
    ACTION BUTTONS
 ================================ */
 
@@ -2124,6 +2233,47 @@ body{
     /* ACTION BUTTONS HIDDEN (option UX propre) */
     .nav-actions{
         display:none;
+    }
+
+    /* CAREER DROPDOWN — expands in place instead of floating */
+    .nav-dropdown-trigger{
+        justify-content:center;
+        width:100%;
+        padding:14px 20px;
+        font-size:18px;
+        font-weight:600;
+        border-radius:12px;
+    }
+
+    .nav-dropdown-trigger:hover{
+        background:#f3f3f3;
+        color:#008000;
+    }
+
+    .nav-dropdown-menu{
+        position:static;
+        transform:none;
+        opacity:1;
+        pointer-events:auto;
+        background:transparent;
+        box-shadow:none;
+        min-width:0;
+        padding:0;
+        max-height:0;
+        overflow:hidden;
+        transition:max-height 0.35s ease;
+    }
+
+    .nav-dropdown.open .nav-dropdown-menu{
+        transform:none;
+        max-height:200px;
+        padding-top:6px;
+    }
+
+    .nav-dropdown-menu a{
+        text-align:center;
+        padding:12px 20px;
+        font-size:16px;
     }
 }
 

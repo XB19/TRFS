@@ -1,0 +1,154 @@
+.admin-shell{
+    font-family:'Poppins', sans-serif;
+    background:#f4f6f8;
+    color:#111;
+    min-height:100vh;
+}
+
+.admin-shell .admin-body{
+    display:flex;
+    min-height:100vh;
+}
+
+/* SIDEBAR */
+.admin-shell .admin-sidebar{
+    width:260px;
+    background:#ff7a00;
+    padding:25px 18px;
+    display:flex;
+    flex-direction:column;
+    flex-shrink:0;
+}
+
+.admin-shell .admin-sidebar-logo{
+    background:#fff;
+    border-radius:14px;
+    padding:18px;
+    text-align:center;
+    margin-bottom:30px;
+    box-shadow:0 4px 12px rgba(0,0,0,0.08);
+}
+
+.admin-shell .admin-sidebar-logo img{
+    width:110px;
+    object-fit:contain;
+    margin:0 auto;
+}
+
+.admin-shell .admin-sidebar-logo small{
+    display:block;
+    margin-top:8px;
+    font-size:11px;
+    font-weight:600;
+    color:#008000;
+    letter-spacing:0.05em;
+    text-transform:uppercase;
+}
+
+.admin-shell .admin-nav{
+    list-style:none;
+    margin-top:10px;
+    padding:0;
+    flex:1;
+}
+
+.admin-shell .admin-nav li{
+    margin-bottom:10px;
+}
+
+.admin-shell .admin-nav a,
+.admin-shell .admin-nav button{
+    display:flex;
+    align-items:center;
+    gap:12px;
+    padding:12px 14px;
+    border-radius:10px;
+    text-decoration:none;
+    color:#fff;
+    font-weight:500;
+    font-size:15px;
+    transition:0.3s;
+    width:100%;
+    border:none;
+    background:transparent;
+    cursor:pointer;
+    text-align:left;
+    font-family:inherit;
+}
+
+.admin-shell .admin-nav a:hover,
+.admin-shell .admin-nav a.active,
+.admin-shell .admin-nav button:hover{
+    background:#1f7a3a;
+}
+
+.admin-shell .admin-nav i{
+    width:20px;
+    text-align:center;
+}
+
+.admin-shell .admin-sidebar-footer{
+    border-top:1px solid rgba(255,255,255,0.25);
+    padding-top:14px;
+}
+
+.admin-shell .admin-user{
+    color:rgba(255,255,255,0.85);
+    font-size:12px;
+    padding:0 14px 10px;
+}
+
+/* MAIN */
+.admin-shell .admin-main{
+    flex:1;
+    padding:30px;
+    min-width:0;
+}
+
+.admin-shell .admin-topbar{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    margin-bottom:30px;
+    flex-wrap:wrap;
+    gap:12px;
+}
+
+.admin-shell .admin-topbar h1{
+    font-size:22px;
+    color:#111;
+}
+
+@media (max-width:900px){
+    .admin-shell .admin-body{
+        flex-direction:column;
+    }
+
+    .admin-shell .admin-sidebar{
+        width:100%;
+        flex-direction:row;
+        flex-wrap:wrap;
+        align-items:center;
+    }
+
+    .admin-shell .admin-sidebar-logo{
+        margin-bottom:0;
+        margin-right:15px;
+    }
+
+    .admin-shell .admin-nav{
+        display:flex;
+        flex-wrap:wrap;
+        gap:8px;
+        margin-top:0;
+    }
+
+    .admin-shell .admin-nav li{
+        margin-bottom:0;
+    }
+
+    .admin-shell .admin-sidebar-footer{
+        border-top:none;
+        margin-left:auto;
+    }
+}

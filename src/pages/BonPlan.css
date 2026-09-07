@@ -58,10 +58,6 @@ ANIMATIONS
     animation:bpFadeIn .8s ease-out both;
 }
 
-.bonplan-page .hero-tag{
-    animation:bpSlideUp .7s ease-out .1s both;
-}
-
 .bonplan-page .hero-title{
     animation:bpSlideUp .7s ease-out .25s both;
 }
@@ -75,48 +71,12 @@ ANIMATIONS
 }
 
 /* =========================
-TOP BANNER
-========================= */
-
-.bonplan-page .anniv-banner{
-    background:linear-gradient(90deg, var(--secondary-dark), var(--secondary), var(--secondary-dark));
-    padding:14px 0;
-    margin-top:90px;
-}
-
-.bonplan-page .anniv-inner{
-    display:flex;
-    align-items:center;
-    justify-content:center;
-    gap:16px;
-    flex-wrap:wrap;
-}
-
-.bonplan-page .anniv-badge{
-    background:var(--primary);
-    color:white;
-    padding:7px 16px;
-    border-radius:40px;
-    font-size:11px;
-    font-weight:800;
-    letter-spacing:.14em;
-}
-
-.bonplan-page .anniv-text{
-    color:rgba(255,255,255,.92);
-    font-size:14px;
-}
-
-.bonplan-page .anniv-text strong{
-    color:#fff;
-}
-
-/* =========================
 HERO
 ========================= */
 
 .bonplan-page .hero-section{
     position:relative;
+    margin-top:90px;
     padding:120px 0 110px;
 
     background:
@@ -127,21 +87,6 @@ HERO
     background-position:center;
 
     text-align:center;
-}
-
-.bonplan-page .hero-tag{
-    display:inline-block;
-    background:rgba(255,255,255,.12);
-    border:1px solid rgba(255,255,255,.14);
-    color:#fff;
-    padding:8px 18px;
-    border-radius:50px;
-    font-size:12px;
-    font-weight:700;
-    letter-spacing:.15em;
-    text-transform:uppercase;
-    margin-bottom:24px;
-    backdrop-filter:blur(8px);
 }
 
 .bonplan-page .hero-title{

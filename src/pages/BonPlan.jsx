@@ -22,23 +22,9 @@ export default function BonPlan() {
 
     return (
         <div className="bonplan-page">
-            <div className="anniv-banner">
-                <div className="container">
-                    <div className="anniv-inner">
-                        <div className="anniv-badge">20 ANS</div>
-
-                        <div className="anniv-text">
-                            Kapi Consult célèbre ses <strong>20 ans d'excellence</strong> au service des organisations.
-                        </div>
-                    </div>
-                </div>
-            </div>
-
             <main>
                 <section className="hero-section">
                     <div className="container">
-                        <div className="hero-tag">Kapi Consult</div>
-
                         <h1 className="hero-title">
                             Bons Plans <span>&amp;</span> ZenCard
                         </h1>
