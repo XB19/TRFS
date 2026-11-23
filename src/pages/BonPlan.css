@@ -168,7 +168,7 @@ GRID
 
 .bonplan-page .bp-grid{
     display:grid;
-    grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+    grid-template-columns:repeat(4,minmax(0,1fr));
     gap:26px;
 }
 
@@ -335,9 +335,9 @@ LIGHTBOX
 }
 
 .bonplan-page .lb-close{
-    position:absolute;
-    top:-52px;
-    right:0;
+    position:fixed;
+    top:110px;
+    right:20px;
     width:42px;
     height:42px;
     border:none;
@@ -419,4 +419,265 @@ MODAL
 .bonplan-page .zc-text{
     color:var(--text);
     line-height:1.8;
+}
+
+/* =========================
+KAPI LAYOUT (counter, poster card, viewer arrows, ZenCard notice)
+========================= */
+
+.bonplan-page .hero-stats{
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    gap:28px;
+    margin-top:44px;
+    animation:bpSlideUp .7s ease-out .7s both;
+}
+
+.bonplan-page .hero-stats b{
+    display:block;
+    font-size:30px;
+    font-weight:800;
+    color:white;
+}
+
+.bonplan-page .hero-stats .hero-stats__accent{
+    color:var(--primary);
+}
+
+.bonplan-page .hero-stats span{
+    display:block;
+    margin-top:4px;
+    font-size:11px;
+    font-weight:700;
+    letter-spacing:.12em;
+    text-transform:uppercase;
+    color:rgba(255,255,255,.65);
+}
+
+.bonplan-page .hero-stats i{
+    width:1px;
+    height:44px;
+    background:rgba(255,255,255,.2);
+}
+
+.bonplan-page .bp-grid > *{
+    height:100%;
+}
+
+.bonplan-page button.bp-card{
+    display:flex;
+    flex-direction:column;
+    width:100%;
+    height:100%;
+    padding:0;
+    font:inherit;
+    text-align:left;
+}
+
+.bonplan-page .bp-media{
+    position:relative;
+    overflow:hidden;
+}
+
+.bonplan-page .bp-media .bp-img{
+    transition:transform .7s;
+}
+
+.bonplan-page .bp-card:hover .bp-img{
+    transform:scale(1.05);
+}
+
+.bonplan-page .bp-zoom{
+    position:absolute;
+    right:14px;
+    bottom:14px;
+    width:42px;
+    height:42px;
+    border-radius:50%;
+    background:rgba(255,255,255,.92);
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    font-size:17px;
+    opacity:0;
+    transition:opacity .25s;
+}
+
+.bonplan-page .bp-card:hover .bp-zoom{
+    opacity:1;
+}
+
+.bonplan-page .bp-footer{
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    gap:10px;
+    flex:1;
+}
+
+.bonplan-page .bp-arrow{
+    color:var(--primary);
+    font-weight:800;
+}
+
+.bonplan-page .bp-skeleton{
+    aspect-ratio:3/4;
+    border-radius:24px;
+    background:linear-gradient(90deg, #eef2f6, #f8fafc, #eef2f6);
+    background-size:200% 100%;
+    animation:bpShimmer 1.4s linear infinite;
+}
+
+@keyframes bpShimmer{
+    from{ background-position:200% 0; }
+    to{ background-position:-200% 0; }
+}
+
+.bonplan-page .bp-text-grid{
+    display:grid;
+    grid-template-columns:repeat(2,minmax(0,1fr));
+    gap:26px;
+    margin-top:32px;
+}
+
+.bonplan-page .lb-title small{
+    display:block;
+    margin-top:4px;
+    font-size:12px;
+    font-weight:500;
+    color:rgba(255,255,255,.6);
+}
+
+.bonplan-page .lb-nav{
+    position:fixed;
+    top:50%;
+    transform:translateY(-50%);
+    width:52px;
+    height:52px;
+    border:none;
+    border-radius:50%;
+    background:rgba(255,255,255,.16);
+    color:white;
+    font-size:32px;
+    line-height:1;
+    cursor:pointer;
+    transition:background .25s;
+}
+
+.bonplan-page .lb-nav:hover,
+.bonplan-page .lb-close:hover{
+    background:var(--primary);
+}
+
+.bonplan-page .lb-nav--prev{ left:20px; }
+.bonplan-page .lb-nav--next{ right:20px; }
+
+.bonplan-page .zc-text{
+    margin-bottom:22px;
+}
+
+.bonplan-page .zc-notice{
+    display:flex;
+    gap:12px;
+    align-items:flex-start;
+    text-align:left;
+    background:rgba(255,116,38,.1);
+    color:var(--primary-dark);
+    border-radius:16px;
+    padding:16px 18px;
+    font-size:14px;
+    line-height:1.6;
+}
+
+.bonplan-page .zc-notice span{
+    font-size:22px;
+}
+
+.bonplan-page .zc-notice b{
+    display:block;
+}
+
+.bonplan-page .zc-actions{
+    display:flex;
+    flex-wrap:wrap;
+    justify-content:center;
+    gap:10px;
+    margin-top:24px;
+}
+
+.bonplan-page .zc-btn{
+    display:inline-flex;
+    align-items:center;
+    gap:8px;
+    border:2px solid var(--secondary);
+    border-radius:60px;
+    background:var(--secondary);
+    color:white;
+    padding:12px 24px;
+    font:inherit;
+    font-size:14px;
+    font-weight:700;
+    text-decoration:none;
+    cursor:pointer;
+    transition:.25s;
+}
+
+.bonplan-page .zc-btn:hover{
+    background:var(--secondary-dark);
+    border-color:var(--secondary-dark);
+}
+
+.bonplan-page .zc-btn--outline{
+    background:transparent;
+    color:var(--secondary);
+}
+
+.bonplan-page .zc-btn--outline:hover{
+    color:white;
+}
+
+@media(max-width:980px){
+    .bonplan-page .bp-grid{
+        grid-template-columns:repeat(2,minmax(0,1fr));
+        gap:16px;
+    }
+}
+
+@media(max-width:640px){
+    .bonplan-page .bp-text-grid{
+        grid-template-columns:1fr;
+    }
+
+    .bonplan-page .bp-grid{
+        gap:12px;
+    }
+
+    .bonplan-page .bp-card,
+    .bonplan-page .bp-skeleton{
+        border-radius:16px;
+    }
+
+    .bonplan-page .bp-badge{
+        top:10px;
+        left:10px;
+        padding:5px 10px;
+    }
+
+    .bonplan-page .bp-footer{
+        padding:12px;
+    }
+
+    .bonplan-page .bp-name{
+        font-size:13px;
+    }
+
+    .bonplan-page .lb-nav{
+        width:42px;
+        height:42px;
+        font-size:26px;
+    }
+
+    .bonplan-page .lb-nav--prev{ left:8px; }
+    .bonplan-page .lb-nav--next{ right:8px; }
 }
