@@ -101,7 +101,10 @@ function Viewer({ items, index, onClose, onMove }) {
 }
 
 export default function BonPlan() {
-    const { posters, cards, loading } = useBonPlan(LOCAL)
+    // Layout set in the Bon Plan admin (texts: null = this site's own text).
+    const { posters, cards: allCards, loading, page } = useBonPlan(LOCAL)
+    const cards = page.showCards ? allCards : []
+    const t = page.texts
     const [view, setView] = useState(null)
     const [zencardOpen, setZencardOpen] = useState(false)
     const closeView = useCallback(() => setView(null), [])
@@ -113,18 +116,22 @@ export default function BonPlan() {
             <main>
                 <section className="hero-section">
                     <div className="container">
+                        {t.heroEyebrow && <p className="hero-eyebrow">{t.heroEyebrow}</p>}
                         <h1 className="hero-title">
-                            Bons Plans <span>&amp;</span> ZenCard
+                            {t.heroTitle ?? <>Bons Plans <span>&amp;</span> ZenCard</>}
                         </h1>
 
                         <p className="hero-text">
-                            Offres spéciales, promotions et avantages exclusifs sélectionnés pour vous.
+                            {t.heroText ?? 'Offres spéciales, promotions et avantages exclusifs sélectionnés pour vous.'}
                         </p>
 
-                        <button className="hero-btn" onClick={() => setZencardOpen(true)}>
-                            💳 Recharger ma ZenCard
-                        </button>
+                        {page.showZencardButton && (
+                            <button className="hero-btn" onClick={() => setZencardOpen(true)}>
+                                💳 {t.buttonLabel ?? 'Recharger ma ZenCard'}
+                            </button>
+                        )}
 
+                        {page.showCounter && (
                         <div className="hero-stats">
                             <div>
                                 <b>{loading ? '…' : posters.length + cards.length}</b>
@@ -136,17 +143,18 @@ export default function BonPlan() {
                                 <span>Votre carte avantages</span>
                             </div>
                         </div>
+                        )}
                     </div>
                 </section>
 
                 <section className="bonsplans-section">
                     <div className="container">
                         <div className="section-head">
-                            <span className="section-tag">Offres &amp; Promotions</span>
-                            <h2 className="section-title">Nos bons plans du moment</h2>
+                            <span className="section-tag">{t.sectionEyebrow ?? 'Offres & Promotions'}</span>
+                            <h2 className="section-title">{t.sectionTitle ?? 'Nos bons plans du moment'}</h2>
                         </div>
 
-                        <div className="bp-grid">
+                        <div className={`bp-grid${page.columns === 3 ? ' bp-grid--3' : ''}`}>
                             {loading
                                 ? Array.from({ length: 4 }, (_, i) => <div key={i} className="bp-skeleton" />)
                                 : posters.map((c, i) => (
